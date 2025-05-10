@@ -5,6 +5,7 @@ import ViewPanel from './components/ViewPanel';
 import axios from 'axios';
 
 function App() {
+  const apiUrl = process.env.REACT_APP_API_URL;
   const [glbUrl, setGlbUrl] = useState(null);
   const [views, setViews] = useState([]);
   const captureViewRef = useRef(null); 
@@ -33,7 +34,7 @@ function App() {
 
   const saveToMongo = async () => {
     try {
-      await axios.post(`http://localhost:8080/views`, { views });
+      await axios.post(`${apiUrl}/views`, { views });
       alert('Views saved to MongoDB');
     } catch (error) {
       alert('Error saving views: ' + error.message);
@@ -42,7 +43,7 @@ function App() {
 
   const loadFromMongo = async () => {
     try {
-      const res = await axios.get(`http://localhost:8080/views`);
+      const res = await axios.get(`${apiUrl}/views`);
       setViews(res.data.views);
       alert('Views loaded from MongoDB');
     } catch (error) {

@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "dotenv -e .env.dev -- npx nodemon server.js",
+    "start:preprod": "dotenv -e .env.preprod -- npx nodemon server.js",
+    "start:prod": "dotenv -e .env.prod -- npx nodemon server.js"
+
   },
   "keywords": [],
   "author": "",
@@ -11,7 +15,11 @@
   "description": "",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "mongoose": "^8.14.1"
+  },
+  "devDependencies": {
+    "dotenv-cli": "^8.0.0"
   }
 }

@@ -13,7 +13,7 @@ router.post('/', async (req, res) => {
     }
 
     // Optional: clear previous views
-    await View.deleteMany();
+    // await View.deleteMany();
 
     await View.insertMany(views.map(view => ({ ...view })));
     res.json({ message: 'Views saved' });

@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const viewsRouter = require('./routes/views');
+require('dotenv').config();
 
 const app = express();
 
@@ -15,7 +16,7 @@ app.use('/views', viewsRouter);
 
 // Connect to MongoDB
 mongoose
-  .connect('mongodb://127.0.0.1:27017/threejsViews', { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('MongoDB connection error:', err));
 
@@ -23,3 +24,4 @@ mongoose
 app.listen(8080, () => {
   console.log('Server running on http://localhost:8080');
 });
+

@@ -51,7 +51,7 @@ const ViewPanel = ({ views, onJumpToView, onSaveViews, onLoadViews }) => {
             onMouseOver={(e) => e.target.style.backgroundColor = '#45a049'}
             onMouseOut={(e) => e.target.style.backgroundColor = '#4CAF50'}
           >
-            Save to MongoDB
+            Save to DB
           </button>
           <button 
             onClick={onLoadViews}
@@ -70,7 +70,7 @@ const ViewPanel = ({ views, onJumpToView, onSaveViews, onLoadViews }) => {
             onMouseOver={(e) => e.target.style.backgroundColor = '#0b7dda'}
             onMouseOut={(e) => e.target.style.backgroundColor = '#2196F3'}
           >
-            Load from MongoDB
+            Load from DB
           </button>
         </>
       )}
